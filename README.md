@@ -2,74 +2,104 @@
 
 A Claude Code skill for Kong's [Kongponents](https://github.com/Kong/kongponents) Vue component library.
 
-## Features
+## Quick Start
 
-- Offline component reference (props, slots, events, examples)
-- Auto-update detection with user confirmation
-- 5 common components embedded, 40+ loaded on-demand
-
-## Installation
-
-### Using the Installation Skill
-
-In Claude Code, invoke the `kongponents-install` skill:
-
-```
-/kongponents-install
-```
-
-Then follow the step-by-step installation instructions provided by the skill.
-
-### Manual Installation
-
-<details>
-<summary>Click to expand manual installation steps</summary>
+### Step 1: Install
 
 ```bash
-# Create directory
-mkdir -p ~/.claude/skills/kongponents/components
-
-# Clone docs only (sparse checkout)
-git clone --depth 1 --filter=blob:none --sparse \
-  https://github.com/Kong/kongponents.git \
-  ~/.claude/skills/kongponents/repo
-cd ~/.claude/skills/kongponents/repo
-git sparse-checkout set docs/components
-
-# Copy scripts from this repository
-cp src/sync.sh src/generate.sh ~/.claude/skills/kongponents/
-chmod +x ~/.claude/skills/kongponents/*.sh
-
-# Generate skill files
-~/.claude/skills/kongponents/generate.sh
+cd ~/.claude/skills
+git clone https://github.com/Kong/kongponents-skill kongponents
 ```
 
-</details>
+### Step 2: First Sync
 
-## Usage
+Launch Claude Code and run:
 
-After installation, the `kongponents` skill is available in Claude Code.
+```
+/kongponents sync
+```
 
-Example prompts:
-- "Create a KButton with danger appearance"
-- "Show me KModal props for a confirmation dialog"
-- "Help me build a form with KInput and KSelect"
+This downloads Kongponents documentation and creates a searchable component index.
+
+### Step 3: Use
+
+Ask Claude about Kongponents components:
+
+```
+Examples:
+- "Show me KButton props"
+- "Create a KModal for confirmation dialog"
+- "Help me use KSelect with filtering"
+- "What components are available?"
+```
+
+## Features
+
+- **Offline reference** - Component docs stored locally
+- **Quick lookup** - Search props, slots, events
+- **Code generation** - Get Vue code examples
+- **40+ components** - Buttons, inputs, modals, tables, and more
+- **Manual sync** - Control when to update documentation
 
 ## Updating
 
-The skill checks for updates every 24 hours. When updates are available, you'll be prompted to sync.
+To update Kongponents documentation:
 
-Manual sync:
-```bash
-~/.claude/skills/kongponents/sync.sh
 ```
+/kongponents sync
+```
+
+The skill will fetch the latest component docs from the Kong/kongponents repository.
+
+## How It Works
+
+**Structure:**
+- `SKILL.md` - Main skill logic
+- `scripts/sync.sh` - Downloads Kongponents docs
+- `scripts/generate.sh` - Creates component index
+- `.data/` - Downloaded docs and generated files (git-ignored)
+
+**Sync process:**
+1. Clones Kong/kongponents repository (sparse checkout, docs only)
+2. Copies component docs to `.data/components/`
+3. Generates `.data/component-index.md` with all components
+4. Records version and timestamp
 
 ## Development
 
+**Test scripts locally:**
+
 ```bash
-# Test generator locally
-SKILL_DIR=./test-output ./src/generate.sh
+# Test sync
+bash scripts/sync.sh
+
+# Test generator
+bash scripts/generate.sh
+
+# Verify output
+ls -la .data/
+cat .data/component-index.md
 ```
+
+**Clean data:**
+
+```bash
+rm -rf .data/
+```
+
+## Troubleshooting
+
+**"Kongponents documentation not synced"**
+- Run `/kongponents sync` to download docs
+
+**Sync fails with git error**
+- Ensure git is installed: `git --version`
+- Check internet connection
+- Try again: `/kongponents sync`
+
+**Component not found**
+- Check available components: Read `.data/component-index.md`
+- Verify sync completed successfully
 
 ## License
 

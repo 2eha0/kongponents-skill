@@ -1,0 +1,42 @@
+---
+name: kongponents
+description: Kong Vue component library reference - generates correct Kongponents code with props, slots, and events
+---
+
+## Update Check
+
+Before using this skill, check for updates:
+
+1. Read `~/.claude/skills/kongponents/.last-check` timestamp
+2. If more than 86400 seconds (24 hours) old:
+   - Run: `git -C ~/.claude/skills/kongponents/repo fetch origin main`
+   - Run: `git -C ~/.claude/skills/kongponents/repo rev-parse origin/main`
+   - Compare with contents of `~/.claude/skills/kongponents/.version`
+   - If different, ask user: "Kongponents has updates available. Sync now? (Y/n)"
+   - If yes: Run `~/.claude/skills/kongponents/sync.sh`
+   - Update `.last-check`: `date +%s > ~/.claude/skills/kongponents/.last-check`
+
+---
+
+## Component Index
+
+| Component | Description | File |
+|-----------|-------------|------|
+| KButton | Button component with multiple appearances | (embedded below) |
+| KInput | Text input with validation states | (embedded below) |
+| KModal | Pop-up modal with overlay | (embedded below) |
+| KSelect | Dropdown select with filtering | (embedded below) |
+| KTable | Data table (deprecated, use KTableData) | (embedded below) |
+| KAlert | Alert messages | components/alert.md |
+| ... | ... | ... |
+
+## Usage
+
+For components marked "(embedded below)", use the documentation in this file.
+For other components, read the file from `~/.claude/skills/kongponents/components/`.
+
+---
+
+## Common Components
+
+[Generated content from button.md, input.md, modal.md, select.md, table.md]

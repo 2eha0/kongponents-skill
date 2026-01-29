@@ -7,7 +7,7 @@ set -euo pipefail
 # Get skill directory (where this script lives)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
-DATA_DIR="$SKILL_DIR/.data"
+DATA_DIR="$SKILL_DIR/docs"
 REPO_DIR="$DATA_DIR/repo"
 REPO_URL="https://github.com/Kong/kongponents.git"
 
@@ -52,4 +52,4 @@ echo "==> Running generator..."
 echo ""
 echo "✓ Sync complete!"
 echo "Version: $(cat "$DATA_DIR/.version")"
-echo "Components available in .data/components/"
+echo "Components available in docs/components/"

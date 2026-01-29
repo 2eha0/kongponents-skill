@@ -57,12 +57,12 @@ The skill will fetch the latest component docs from the Kong/kongponents reposit
 - `SKILL.md` - Main skill logic
 - `scripts/sync.sh` - Downloads Kongponents docs
 - `scripts/generate.sh` - Creates component index
-- `.data/` - Downloaded docs and generated files (git-ignored)
+- `docs/` - Downloaded docs and generated files (git-ignored)
 
 **Sync process:**
 1. Clones Kong/kongponents repository (sparse checkout, docs only)
-2. Copies component docs to `.data/components/`
-3. Generates `.data/component-index.md` with all components
+2. Copies component docs to `docs/components/`
+3. Generates `docs/component-index.md` with all components
 4. Records version and timestamp
 
 ## Development
@@ -77,14 +77,14 @@ bash scripts/sync.sh
 bash scripts/generate.sh
 
 # Verify output
-ls -la .data/
-cat .data/component-index.md
+ls -la docs/
+cat docs/component-index.md
 ```
 
 **Clean data:**
 
 ```bash
-rm -rf .data/
+rm -rf docs/
 ```
 
 ## Troubleshooting
@@ -98,7 +98,7 @@ rm -rf .data/
 - Try again: `/kongponents sync`
 
 **Component not found**
-- Check available components: Read `.data/component-index.md`
+- Check available components: Read `docs/component-index.md`
 - Verify sync completed successfully
 
 ## License

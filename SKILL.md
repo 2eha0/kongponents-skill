@@ -7,7 +7,7 @@ description: Kong Vue component library reference - provides props, slots, event
 
 Before using this skill, verify the documentation is synced:
 
-1. Check if `.data/.version` file exists
+1. Check if `docs/.version` file exists
 2. If not found: Display error message and stop
    ```
    ❌ Kongponents documentation not synced.
@@ -26,7 +26,7 @@ Downloads and indexes Kongponents component documentation.
 **What it does:**
 1. Clones Kong/kongponents repository (docs/components only)
 2. Generates component index
-3. Creates searchable reference in `.data/components/`
+3. Creates searchable reference in `docs/components/`
 
 **Usage:**
 ```
@@ -43,13 +43,13 @@ Run this command once after installing the skill.
 
 ## Component Reference
 
-After syncing, component documentation is available in `.data/components/`.
+After syncing, component documentation is available in `docs/components/`.
 
 **To help users:**
 
-1. **Check if synced** - Verify `.data/.version` exists first
-2. **Read component index** - Use `.data/component-index.md` to see all components
-3. **Read component docs** - Use `.data/components/<component-name>.md` for details
+1. **Check if synced** - Verify `docs/.version` exists first
+2. **Read component index** - Use `docs/component-index.md` to see all components
+3. **Read component docs** - Use `docs/components/<component-name>.md` for details
 4. **Provide examples** - Generate Vue code using Kongponents patterns
 
 **Common components:**
@@ -68,15 +68,15 @@ After syncing, component documentation is available in `.data/components/`.
 
 User asks: "Show me KButton props"
 
-1. Check `.data/.version` exists ✓
-2. Read `.data/components/button.md`
+1. Check `docs/.version` exists ✓
+2. Read `docs/components/button.md`
 3. Extract props section
 4. Provide formatted answer with examples
 
 User asks: "Create a danger button"
 
-1. Check `.data/.version` exists ✓
-2. Read `.data/components/button.md`
+1. Check `docs/.version` exists ✓
+2. Read `docs/components/button.md`
 3. Find danger appearance prop
 4. Generate code:
    ```vue
@@ -89,7 +89,7 @@ User asks: "Create a danger button"
 
 To check if documentation is outdated:
 
-1. Read `.data/.last-check` timestamp
+1. Read `docs/.last-check` timestamp
 2. If more than 86400 seconds (24 hours) old:
    - Show message: "Kongponents docs may be outdated (last synced X days ago). Run `/kongponents sync` to update."
    - User can choose to continue or sync
@@ -105,8 +105,8 @@ Run: /kongponents sync
 **Sync failures:**
 - Git not installed: "Error: git not found. Please install git first."
 - Network issues: "Error: Failed to clone repository. Check your internet connection."
-- Permission issues: "Error: Cannot write to .data/ directory."
+- Permission issues: "Error: Cannot write to docs/ directory."
 
 **Component not found:**
-- Check `.data/component-index.md` for available components
+- Check `docs/component-index.md` for available components
 - Suggest similar component names if typo detected

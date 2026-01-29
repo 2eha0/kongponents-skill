@@ -12,7 +12,7 @@ capitalize() {
 # Get skill directory (where this script lives)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
-DATA_DIR="$SKILL_DIR/.data"
+DATA_DIR="$SKILL_DIR/docs"
 REPO_DIR="$DATA_DIR/repo"
 DOCS_DIR="$REPO_DIR/docs/components"
 COMPONENTS_DIR="$DATA_DIR/components"
@@ -49,7 +49,7 @@ for file in "$DOCS_DIR"/*.md; do
     cp "$file" "$COMPONENTS_DIR/${name}.md"
 
     # Add to index
-    echo "| K$(capitalize "$name") | ${desc} | .data/components/${name}.md |" >> "$INDEX_FILE"
+    echo "| K$(capitalize "$name") | ${desc} | docs/components/${name}.md |" >> "$INDEX_FILE"
 done
 
 # Count results

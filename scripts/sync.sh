@@ -42,8 +42,8 @@ fi
 
 # Record version and timestamp
 cd "$REPO_DIR" || exit 1
-git rev-parse HEAD > "$DATA_DIR/.version"
-date +%s > "$DATA_DIR/.last-check"
+git rev-parse HEAD > "$DATA_DIR/VERSION"
+date +%s > "$DATA_DIR/last-check.txt"
 cd "$SKILL_DIR" || exit 1
 
 echo "==> Running generator..."
@@ -51,5 +51,5 @@ echo "==> Running generator..."
 
 echo ""
 echo "✓ Sync complete!"
-echo "Version: $(cat "$DATA_DIR/.version")"
+echo "Version: $(cat "$DATA_DIR/VERSION")"
 echo "Components available in docs/components/"

@@ -7,7 +7,7 @@ description: Kong Vue component library reference - provides props, slots, event
 
 Before using this skill, verify the documentation is synced:
 
-1. Check if `docs/.version` file exists
+1. Check if `docs/VERSION` file exists
 2. If not found: Display error message and stop
    ```
    ❌ Kongponents documentation not synced.
@@ -47,7 +47,7 @@ After syncing, component documentation is available in `docs/components/`.
 
 **To help users:**
 
-1. **Check if synced** - Verify `docs/.version` exists first
+1. **Check if synced** - Verify `docs/VERSION` exists first
 2. **Read component index** - Use `docs/component-index.md` to see all components
 3. **Read component docs** - Use `docs/components/<component-name>.md` for details
 4. **Provide examples** - Generate Vue code using Kongponents patterns
@@ -68,14 +68,14 @@ After syncing, component documentation is available in `docs/components/`.
 
 User asks: "Show me KButton props"
 
-1. Check `docs/.version` exists ✓
+1. Check `docs/VERSION` exists ✓
 2. Read `docs/components/button.md`
 3. Extract props section
 4. Provide formatted answer with examples
 
 User asks: "Create a danger button"
 
-1. Check `docs/.version` exists ✓
+1. Check `docs/VERSION` exists ✓
 2. Read `docs/components/button.md`
 3. Find danger appearance prop
 4. Generate code:
@@ -89,7 +89,7 @@ User asks: "Create a danger button"
 
 To check if documentation is outdated:
 
-1. Read `docs/.last-check` timestamp
+1. Read `docs/last-check.txt` timestamp
 2. If more than 86400 seconds (24 hours) old:
    - Show message: "Kongponents docs may be outdated (last synced X days ago). Run `/kongponents sync` to update."
    - User can choose to continue or sync
